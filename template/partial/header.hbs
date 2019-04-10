@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Promedio estudiante</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css"  type="text/css">     
+        <link rel="stylesheet" href="/css/main.css"  type="text/css">   
+    </head>
+    <body class="main-body">
+        <header>
+                <h1> {{titulo}} </h1>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Inicio</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="/vernotas">Ver notas</a>
+                    </li> 
+                   
+                {{#if session}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/actualizar">Actualizar</a>
+                        </li> 
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0" action="/salir" method="POST">
+                            <h3>{{nombre}}</h3>
+                        <button class="btn btn-primary" type="submit">Salir</button>
+                    </form>
+                {{else}}
+                    </ul>
+                    <form action="/ingresar" method="POST" >
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="exampleInputEmail1">Nombre de usuario</label>
+                                <input class="form-control" type="text" name="usuario" required>
+                            </div>
+                            <div class="col">
+                                <label for="exampleInputEmail1">Contraseña</label>
+                                <input class="form-control" type="password" name="password" required>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary" type="submit">Ingresar</button>
+                            </div>
+                        </div>
+                    </form>
+                {{/if}}
+                </div>
+        </nav>
